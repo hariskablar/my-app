@@ -1,0 +1,80 @@
+footer {
+  height: 10vh;
+  background: #212121;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+}
+footer img {
+  width: 250px;
+  margin-left: 50px;
+}
+.footerSeparator {
+  width: 1px;
+  height: 60%;
+  background-color: white;
+  margin: 0 70px;
+}
+.poslovnicaTitle {
+  margin: 0px !important;
+  color: white;
+  font-weight: 100 !important;
+  font-style: italic;
+  /* font-size: 17px; */
+}
+.bold {
+  font-weight: 600;
+}
+.whiteBtn {
+  color: #212121;
+  background: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  border-radius: 2px;
+  padding: 13px 33px;
+  margin: 0 100px 0 100px;
+}
+.orangeBtn {
+  color: white;
+  background: #fe8300;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  border-radius: 2px;
+  padding: 13px 33px;
+  margin: 0 20px;
+}
+.blueBtn {
+  color: white;
+  background: #457aff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  border-radius: 2px;
+  padding: 13px 33px 13px 100px;
+  margin-right: 20px;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+.blueBtn:before {
+  content: url(/public/game-icon.png);
+  position: absolute;
+  left: -19px;
+  top: -16px;
+  transform: rotate(310deg);
+  scale: 0.8;
+}
+.blueBtn:after {
+  content: url(/public/game-icon-part.png);
+  position: absolute;
+  top: -7px;
+  left: 27px;
+  scale: 0.8;
+}
