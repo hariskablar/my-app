@@ -1,0 +1,193 @@
+.device-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: start;
+  background-color: white;
+  border: 1px solid #cccccc;
+  scale: 1;
+  visibility: visible;
+  transform-origin: center center;
+  transition: all 0.4s ease-in-out;
+}
+.device-container {
+  display: flex;
+  flex: 1 1000px;
+  min-width: 1000px;
+  padding: 50px 0px 0px;
+}
+.image-container {
+  flex: 0 270px;
+  max-width: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  position: relative;
+}
+.image-container > img {
+  padding: 0 20px;
+}
+.sticker {
+  position: absolute;
+  top: 120px;
+  right: 18px;
+  width: 100px;
+  transform: rotate(331deg);
+}
+.device-content {
+  flex: 1 760px;
+  display: flex;
+  flex-direction: column;
+  padding-right: 50px;
+}
+.device-title {
+  color: #212121;
+  font-size: 37px;
+  font-weight: 900;
+  line-height: 40px;
+  margin-bottom: 5px !important;
+  margin-top: 0px !important;
+}
+.device-model {
+  color: #212121;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 40px;
+  margin-bottom: 10px !important;
+  margin-top: 0px !important;
+}
+.device-price-container {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+}
+.device-price-table {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.table-header {
+  display: flex;
+  flex-direction: row;
+  flex: 1 100%;
+}
+.table-header div {
+  flex: 1 50%;
+  margin: 1px;
+  padding: 10px;
+}
+.strong-text {
+  font-weight: 700;
+}
+.bht-bg {
+  background: #fe8300;
+  line-height: 1;
+}
+.bht-bg span {
+  color: white;
+  font-size: 19px;
+  line-height: 19px;
+}
+.right-align {
+  text-align: right;
+}
+.table-subheader {
+  display: flex;
+  flex-direction: row;
+}
+.table-subheader div {
+  flex: 1 33.33%;
+  margin: 1px;
+  line-height: 1;
+}
+.black-bg {
+  background: #212121;
+  padding: 10px;
+}
+.table-subheader .black-bg span {
+  line-height: 16px;
+  font-size: 16px;
+}
+.black-bg span {
+  color: white;
+  line-height: 1;
+}
+.table-row {
+  display: flex;
+  flex-direction: row;
+}
+.table-row div {
+  flex: 1 33.33%;
+  margin: 1px;
+  line-height: 1;
+  padding: 10px;
+}
+.table-row span {
+  font-size: 17px !important;
+  line-height: 17px !important;
+}
+.qr-code-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+.qr-code-container > img:first-child {
+  width: 150px;
+  object-fit: contain;
+  position: absolute;
+  top: -98px;
+  left: 17px;
+}
+.qr-code {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+.device-info-container {
+  display: flex;
+  flex-direction: column;
+}
+.device-table-header {
+  display: flex;
+  flex-direction: row;
+}
+.device-table-header div {
+  flex: 1 14.28%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 1px;
+  background: #212121;
+}
+.device-info-container span {
+  font-size: 12px !important;
+  line-height: 1.5;
+}
+.device-table-content {
+  display: flex;
+  flex-direction: row;
+}
+.device-table-content div {
+  margin: 1px;
+  flex: 1 14.28%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+}
+.device-table-content span {
+  font-size: 11px !important;
+  line-height: 1 !important;
+  padding: 5px 4px;
+}
+.center-text {
+  text-align: center;
+}
+.white-bg {
+  border: 1px solid black;
+}
+.white-bg span {
+  color: #212121;
+}

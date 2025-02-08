@@ -22,6 +22,7 @@ export const DigitalDisplayProvider = ({ children }) => {
         }, {})
       );
       setData(finalData);
+      console.log(finalData);
     } catch (err) {
       console.error(err);
     }
