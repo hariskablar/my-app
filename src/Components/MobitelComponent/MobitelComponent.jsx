@@ -2,7 +2,6 @@ import classes from './MobitelComponent.module.css';
 import React from 'react';
 
 function MobitelComponent({ deviceData }) {
-  console.log(deviceData);
   const {
     slika,
     akcija,
