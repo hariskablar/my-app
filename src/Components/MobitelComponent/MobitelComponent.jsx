@@ -1,7 +1,7 @@
 import classes from './MobitelComponent.module.css';
 import React from 'react';
 
-function MobitelComponent({ deviceData }) {
+function MobitelComponent({ deviceData, deviceBrend }) {
   const {
     slika,
     akcija,
@@ -30,7 +30,7 @@ function MobitelComponent({ deviceData }) {
     'operativni sistem': operativniSistem,
   } = deviceData;
   return (
-    <div className={classes['device-wrapper']}>
+    <div className={`${classes['device-wrapper']}`} data-brend={deviceBrend}>
       <div className={classes['device-container']}>
         <div className={classes['image-container']}>
           <img src={slika} alt='slika' />
