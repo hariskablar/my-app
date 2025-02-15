@@ -1,0 +1,52 @@
+article {
+  border: 1px solid lightgrey;
+  min-width: 700px;
+  width: 700px;
+  flex: 1 700px;
+}
+.card-wrapper {
+  padding: 20px;
+  background: white;
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+}
+.image-container {
+  /* flex: 0 0 40%;
+  width: 40%; */
+  height: 100%;
+}
+.akcija-image {
+  height: 100%;
+  object-fit: contain;
+}
+.text-container {
+  display: flex;
+  flex: 0 60%;
+  flex-direction: column;
+  justify-content: end;
+}
+.text-container h2 {
+  line-height: 1.2;
+  font-size: 25px;
+}
+.description,
+.akcije-duration,
+.end-tag {
+  font-size: 14px;
+  margin-bottom: 5px;
+  line-height: 1.1;
+}
+.description {
+  white-space: pre-line;
+}
+.end-tag {
+  font-weight: 500;
+}
+.highlighted {
+  color: #fe8300;
+}

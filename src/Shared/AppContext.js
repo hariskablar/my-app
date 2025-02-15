@@ -5,13 +5,14 @@ const digitalDisplayContext = createContext();
 
 export const DigitalDisplayProvider = ({ children }) => {
   const [data, setData] = useState([]);
+  const [akcije, setAkcije] = useState([]);
 
   const fetchUredaji = async () => {
     const sheetId = '1xYiZB_95fmNbnFdU-HcPm8rp3BZKYq7t7e7ihF13NY0';
-    const range = 'Sheet1!A1:Z';
+    const sheetName = 'Sheet1';
     try {
       const response = await googleSheetClient.get(
-        `/${sheetId}/values/${range}`
+        `/${sheetId}/values/${sheetName}`
       );
       const headers = response.data.values[0];
       const rows = response.data.values.slice(1);
@@ -22,18 +23,39 @@ export const DigitalDisplayProvider = ({ children }) => {
         }, {})
       );
       setData(finalData);
-      console.log(finalData);
     } catch (err) {
       console.error(err);
+    }
+  };
+  const fetchAkcije = async () => {
+    const sheetId = '1xYiZB_95fmNbnFdU-HcPm8rp3BZKYq7t7e7ihF13NY0';
+    const sheetName = 'Akcije';
+
+    try {
+      const response = await googleSheetClient.get(
+        `/${sheetId}/values/${sheetName}`
+      );
+      const headers = response.data.values[0];
+      const rows = response.data.values.slice(1);
+      const finalData = rows.map((row) =>
+        headers.reduce((acc, header, index) => {
+          acc[header.toLowerCase()] = row[index] || '';
+          return acc;
+        }, {})
+      );
+      setAkcije(finalData);
+    } catch (err) {
+      console.log(err);
     }
   };
 
   useEffect(() => {
     fetchUredaji();
+    fetchAkcije();
   }, []);
 
   return (
-    <digitalDisplayContext.Provider value={{ data, googleSheetClient }}>
+    <digitalDisplayContext.Provider value={{ data, akcije, googleSheetClient }}>
       {children}
     </digitalDisplayContext.Provider>
   );

@@ -1,0 +1,15 @@
+.sliderContainer {
+  height: 65vh;
+  max-height: 65vh;
+  overflow: hidden;
+  margin-bottom: 5vh;
+  margin-left: 99px;
+}
+.slider {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  overflow-y: auto;
+  scroll-snap-type: x mandatory;
+  height: 100%;
+}
