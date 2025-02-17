@@ -63,7 +63,7 @@ function App() {
           <div
             className='home-content-col'
             onClick={() => {
-              navigate('/dokupi-tourist');
+              navigate('/dokupi-main');
             }}
           >
             <img

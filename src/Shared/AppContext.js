@@ -6,6 +6,7 @@ const digitalDisplayContext = createContext();
 export const DigitalDisplayProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [akcije, setAkcije] = useState([]);
+  const [dokupi, setDokupi] = useState([]);
 
   const fetchUredaji = async () => {
     const sheetId = '1xYiZB_95fmNbnFdU-HcPm8rp3BZKYq7t7e7ihF13NY0';
@@ -27,6 +28,7 @@ export const DigitalDisplayProvider = ({ children }) => {
       console.error(err);
     }
   };
+
   const fetchAkcije = async () => {
     const sheetId = '1xYiZB_95fmNbnFdU-HcPm8rp3BZKYq7t7e7ihF13NY0';
     const sheetName = 'Akcije';
@@ -49,13 +51,39 @@ export const DigitalDisplayProvider = ({ children }) => {
     }
   };
 
+  const fetchDokupi = async () => {
+    const sheetId = '1xYiZB_95fmNbnFdU-HcPm8rp3BZKYq7t7e7ihF13NY0';
+    const sheetName = 'Dokupi';
+
+    try {
+      const response = await googleSheetClient.get(
+        `/${sheetId}/values/${sheetName}`
+      );
+      const headers = response.data.values[0];
+      const rows = response.data.values.slice(1);
+      const finalData = rows.map((row) =>
+        headers.reduce((acc, header, index) => {
+          acc[header.toLowerCase()] = row[index] || '';
+          return acc;
+        }, {})
+      );
+      console.log(finalData);
+      setDokupi(finalData);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     fetchUredaji();
     fetchAkcije();
+    fetchDokupi();
   }, []);
 
   return (
-    <digitalDisplayContext.Provider value={{ data, akcije, googleSheetClient }}>
+    <digitalDisplayContext.Provider
+      value={{ data, akcije, dokupi, googleSheetClient }}
+    >
       {children}
     </digitalDisplayContext.Provider>
   );

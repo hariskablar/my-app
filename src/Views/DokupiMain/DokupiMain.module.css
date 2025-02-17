@@ -1,0 +1,8 @@
+.dokupi-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
