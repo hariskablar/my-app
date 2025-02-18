@@ -42,7 +42,7 @@ function DokupiMain() {
     >
       <Header icon={'/dokupi-header-logo.svg'} title={'Dokupi'} />
       <Flex
-        w='1000px'
+        w='100%'
         h='75vh'
         direction='row'
         justify='center'
