@@ -64,7 +64,7 @@ function Akcije() {
         </Flex>
       </Stack>
       <PaginationDots
-        dataLength={akcije.length}
+        dataLength={akcije.length - 1}
         activeIndex={activeIndex}
         onDotClick={handleDotClick}
       />

@@ -2,7 +2,7 @@ import classes from './PaginationDots.module.css';
 import { Flex } from '@mantine/core';
 
 function PaginationDots({ dataLength, activeIndex, onDotClick }) {
-  const dots = Array.from({ length: dataLength - 1 }).map((_, index) => {
+  const dots = Array.from({ length: dataLength }).map((_, index) => {
     return (
       <span
         key={index}

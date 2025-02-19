@@ -1,0 +1,78 @@
+.card-wrapper {
+  width: 400px;
+  min-width: 400px;
+  height: 100%;
+  border: 1px solid lightgrey;
+  padding: 20px;
+  background-color: white;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-title {
+  background-color: #fe8300;
+  color: white;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+  font-size: 26px;
+  padding: 10px;
+  margin: 0 0 20px;
+}
+.card-wrapper ul {
+  margin: 5px 0 15px;
+  padding-left: 25px;
+}
+.card-wrapper ul li {
+  line-height: 1.4;
+  font-size: 16px;
+  font-weight: 700;
+}
+.card-description {
+  line-height: 1.3;
+  font-size: 11px;
+  margin-bottom: 7px;
+  white-space: break-spaces;
+}
+.cards-bottom-container {
+  display: flex;
+  flex-direction: row;
+}
+.qr-code-container {
+  flex: 0 120px;
+  width: 120px;
+  position: relative;
+}
+.qr-code-container:before {
+  content: url('/public/skeniraj-i-posalji.svg');
+  position: absolute;
+  left: 0;
+  top: -30px;
+  left: 7px;
+}
+.qr-code-container img {
+  width: 100%;
+  object-fit: contain;
+}
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: 1;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+.price {
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1;
+  text-align: right;
+  letter-spacing: 0px;
+  color: black;
+}
+.duration {
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 100;
+  text-align: right;
+}

@@ -2,13 +2,44 @@ import Footer from '../../Layout/Footer/Footer';
 import Header from '../../Layout/Header/Header';
 import { motion } from 'framer-motion';
 import { useDigitalDisplay } from '../../Shared/AppContext';
-import { Flex } from '@mantine/core';
+import { Flex, Stack } from '@mantine/core';
+import classes from './UltraDokupi.module.css';
+import DokupCard from '../../Components/DokupCard/DokupCard';
+import PaginationDots from '../../Components/PaginationDots/PaginationDots';
+import { useRef, useState } from 'react';
 
 function UltraDokupi() {
   const { dokupi } = useDigitalDisplay();
   const ultraDokupi = dokupi.filter((item) =>
     item.kategorija.includes('prepaid')
   );
+  const containerRef = useRef();
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleScroll = () => {
+    if (!containerRef.current) return;
+    const scrollPosition = containerRef.current.scrollLeft;
+    const itemWidth =
+      containerRef.current.scrollWidth / ultraDokupi.length + 40;
+    const newIndex = Math.round(scrollPosition / itemWidth);
+    if (
+      scrollPosition >=
+      containerRef.current.scrollWidth - window.innerWidth
+    ) {
+      setActiveIndex(newIndex + 1);
+    } else {
+      setActiveIndex(newIndex);
+    }
+  };
+  const handleClick = (index) => {
+    if (!containerRef.current) return;
+    const itemWidth = containerRef.current.scrollWidth / ultraDokupi.length;
+    containerRef.current.scrollTo({
+      left: itemWidth * index,
+      behavior: 'smooth',
+    });
+    setActiveIndex(index);
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,9 +48,29 @@ function UltraDokupi() {
       transition={{ duration: 0.3 }}
     >
       <Header icon={'/dokupi-header-logo.svg'} title={'Dokupi'} />
-      <Flex>
-        <Flex></Flex>
-      </Flex>
+      <Stack className={classes['content-container']}>
+        <Flex className={classes['content-heading']}>
+          <img src='/prepaid-logo.svg' alt='prepaid logo' />
+          <h1>Dokupi za prepaid pakete</h1>
+        </Flex>
+        <Flex
+          ref={containerRef}
+          className={classes['slider']}
+          onScroll={handleScroll}
+        >
+          {ultraDokupi &&
+            ultraDokupi.map((dokup) => {
+              return <DokupCard key={dokup.title} cardData={dokup} />;
+            })}
+        </Flex>
+        <Flex align='center' justify='center' h='13vh'>
+          <PaginationDots
+            dataLength={ultraDokupi.length - 3}
+            activeIndex={activeIndex}
+            onDotClick={handleClick}
+          />
+        </Flex>
+      </Stack>
       <Footer />
     </motion.div>
   );
