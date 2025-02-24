@@ -5,6 +5,13 @@ function DokupCard({ cardData }) {
   const atributi = atributiSplit.map((item, index) => {
     return <li key={index}>{item}</li>;
   });
+  console.log(cardData.kategorija);
+  let qrCodeClass = classes['qr-code-container'];
+  if (cardData.kategorija === 'esim') {
+    qrCodeClass = `${classes['qr-code-container']} ${classes['esim']}`;
+  } else if (cardData.qr === 'null') {
+    qrCodeClass = `${classes['hidden']}`;
+  }
   return (
     <div className={classes['card-wrapper']}>
       <div>
@@ -13,7 +20,7 @@ function DokupCard({ cardData }) {
         <p className={classes['card-description']}>{cardData.opis}</p>
       </div>
       <div className={classes['cards-bottom-container']}>
-        <div className={classes['qr-code-container']}>
+        <div className={qrCodeClass}>
           <img src={cardData.qr} alt='QR code' />
         </div>
         <div className={classes['price-container']}>

@@ -59,8 +59,8 @@ function UltraDokupi() {
           onScroll={handleScroll}
         >
           {ultraDokupi &&
-            ultraDokupi.map((dokup) => {
-              return <DokupCard key={dokup.title} cardData={dokup} />;
+            ultraDokupi.map((dokup, index) => {
+              return <DokupCard key={index} cardData={dokup} />;
             })}
         </Flex>
         <Flex align='center' justify='center' h='13vh'>

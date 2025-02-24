@@ -2,10 +2,36 @@ import Footer from '../../Layout/Footer/Footer';
 import Header from '../../Layout/Header/Header';
 import { motion } from 'framer-motion';
 import { useDigitalDisplay } from '../../Shared/AppContext';
+import classes from './Esim.module.css';
+import { useState, useRef } from 'react';
+import { Flex, Stack } from '@mantine/core';
+import PaginationDots from '../../Components/PaginationDots/PaginationDots';
+import DokupCard from '../../Components/DokupCard/DokupCard';
 
 function Esim() {
   const { dokupi } = useDigitalDisplay();
   const esimDokupi = dokupi.filter((item) => item.kategorija.includes('esim'));
+  const containerRef = useRef();
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleScroll = () => {
+    if (!containerRef.current) return;
+    const scrollPosition = containerRef.current.scrollLeft;
+    const itemWidth = containerRef.current.scrollWidth / esimDokupi.length + 40;
+    const newIndex = Math.round(scrollPosition / itemWidth);
+
+    setActiveIndex(newIndex);
+  };
+
+  const handleClick = (index) => {
+    if (!containerRef.current) return;
+    const itemWidth = containerRef.current.scrollWidth / esimDokupi.length;
+    containerRef.current.scrollTo({
+      left: index * itemWidth,
+      behavior: 'smooth',
+    });
+    setActiveIndex(index);
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -14,7 +40,29 @@ function Esim() {
       transition={{ duration: 0.3 }}
     >
       <Header icon={'/dokupi-header-logo.svg'} title={'Dokupi'} />
-      <h1>Esim</h1>
+      <Stack className={classes['content-container']}>
+        <Flex className={classes['content-heading']}>
+          <img src='/tourist-logo.svg' alt='esim logo' />
+          <h1>eSIM & Tourist</h1>
+        </Flex>
+        <Flex
+          ref={containerRef}
+          className={classes['slider']}
+          onScroll={handleScroll}
+        >
+          {esimDokupi &&
+            esimDokupi.map((dokup, index) => {
+              return <DokupCard key={index} cardData={dokup} />;
+            })}
+        </Flex>
+        <Flex align='center' justify='center' h='13vh'>
+          <PaginationDots
+            dataLength={esimDokupi.length - 3}
+            activeIndex={activeIndex}
+            onDotClick={handleClick}
+          />
+        </Flex>
+      </Stack>
       <Footer />
     </motion.div>
   );

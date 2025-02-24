@@ -43,12 +43,23 @@
   width: 120px;
   position: relative;
 }
+.esim {
+  flex: 0 120px;
+  width: 120px;
+  position: relative;
+}
 .qr-code-container:before {
   content: url('/public/skeniraj-i-posalji.svg');
   position: absolute;
-  left: 0;
   top: -30px;
   left: 7px;
+}
+.esim:before {
+  content: url('/public/skeniraj-i-kupi.svg');
+  position: absolute;
+  scale: 1.3;
+  top: -40px;
+  left: 25px;
 }
 .qr-code-container img {
   width: 100%;
@@ -75,4 +86,7 @@
   line-height: 1;
   font-weight: 100;
   text-align: right;
+}
+.hidden {
+  display: none;
 }
