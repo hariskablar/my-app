@@ -11,6 +11,7 @@ const KombinovaniDokupi = lazy(() =>
   import('../../Views/KombinovaniDokupi/KombinovaniDokupi')
 );
 const Esim = lazy(() => import('../../Views/Esim/Esim'));
+const Zabava = lazy(() => import('../../Views/Zabava/Zabava'));
 
 export const sitemap = [
   { component: <App />, path: '/' },
@@ -21,4 +22,5 @@ export const sitemap = [
   { component: <ExtraDokupi />, path: '/extra-dokupi' },
   { component: <KombinovaniDokupi />, path: '/kombinovani-dokupi' },
   { component: <Esim />, path: '/esim' },
+  { component: <Zabava />, path: '/zabava' },
 ];

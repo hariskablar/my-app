@@ -67,7 +67,6 @@ export const DigitalDisplayProvider = ({ children }) => {
           return acc;
         }, {})
       );
-      console.log(finalData);
       setDokupi(finalData);
     } catch (err) {
       console.log(err);

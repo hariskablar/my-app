@@ -20,7 +20,14 @@ function Footer() {
         Franca Lehara 7
       </p>
       <div className={classes.whiteBtn}>Ocijeni poslovnicu</div>
-      <div className={classes.blueBtn}>Pokreni igru</div>
+      <div
+        className={classes.blueBtn}
+        onClick={() => {
+          navigate('/zabava');
+        }}
+      >
+        Pokreni igru
+      </div>
       <div className={classes.orangeBtn}>Cjenovnik usluga</div>
       <div className={classes.orangeBtn}>Cjenovnik uređaja</div>
     </footer>
