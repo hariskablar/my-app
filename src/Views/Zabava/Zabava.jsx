@@ -3,7 +3,7 @@ import Header from '../../Layout/Header/Header';
 import Footer from '../../Layout/Footer/Footer';
 import { motion } from 'framer-motion';
 import { Flex } from '@mantine/core';
-import { useState, useRef, useEffect, lazy } from 'react';
+import { useState, useEffect, lazy } from 'react';
 
 const GameCard = lazy(() => import('../../Components/GameCard/GameCard'));
 
