@@ -48,3 +48,25 @@
   margin-bottom: 0px;
   line-height: 1;
 }
+
+.izvodi-card-wrapper {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #b1b1b1;
+  border-radius: 8px;
+  background: white;
+  height: 200px;
+  min-width: 420px;
+  flex: 0 420px;
+  align-items: center;
+  justify-content: start;
+  padding: 20px 50px;
+  width: 100%;
+}
+.izvodi-card-wrapper .image-container {
+  width: 100px;
+  height: 100px;
+}
+.izvodi-card-wrapper .title {
+  font-size: 26px;
+}

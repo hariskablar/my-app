@@ -4,6 +4,7 @@ import classes from './Header.module.css';
 
 function Header({ icon, title }) {
   const navigate = useNavigate();
+  console.log(icon);
   return (
     <header>
       <div
@@ -16,11 +17,13 @@ function Header({ icon, title }) {
         <span>Nazad</span>
       </div>
       <div className={classes.headerSeparator}></div>
-      <img
-        className={classes.headerIcon}
-        src={`${process.env.PUBLIC_URL}${icon}`}
-        alt='header-icon'
-      />
+      {icon && (
+        <img
+          className={classes.headerIcon}
+          src={`${process.env.PUBLIC_URL}${icon}`}
+          alt='header-icon'
+        />
+      )}
       <span className={classes.headerTitle}>{title}</span>
     </header>
   );

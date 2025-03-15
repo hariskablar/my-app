@@ -7,11 +7,7 @@ function ListItem({ cardData, cardType }) {
 
   return (
     <div
-      className={
-        cardType === 'dokupi'
-          ? `${classes['dokupi-card-wrapper']}`
-          : `${classes['ostali-card-wrapper']}`
-      }
+      className={`${classes[`${cardType}-card-wrapper`]}`}
       onClick={() => {
         navigate(`${path}`);
       }}

@@ -14,6 +14,7 @@ function Zabava() {
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState(new Set());
   const [canFlip, setCanFlip] = useState(true);
+  const [win, setWin] = useState(false);
   const colors = [
     'red',
     'blue',
@@ -41,6 +42,7 @@ function Zabava() {
     setFlippedCards([]);
     setMatchedCards(new Set());
     setCanFlip(true);
+    setWin(false);
   }
   function cardClick(index) {
     if (!canFlip || flippedCards.includes(index) || matchedCards.has(index))
@@ -59,6 +61,11 @@ function Zabava() {
         setMatchedCards((prev) => new Set([...prev, firstIndex, secondIndex]));
         setFlippedCards([]);
         setCanFlip(true);
+        console.log(matchedCards.size);
+        console.log(cards.length);
+        if (matchedCards.size + 2 === cards.length) {
+          setWin(true);
+        }
       } else {
         setTimeout(() => {
           setFlippedCards([]);
@@ -109,6 +116,14 @@ function Zabava() {
         <span className={classes['reset-button']} onClick={initializeGame}>
           Ponovi igru
         </span>
+        <div
+          className={`${classes['celebration']} ${
+            win ? classes['show-victory'] : ''
+          }`}
+        >
+          <p>Pobjeda!</p>
+          <p>Čestitamo</p>
+        </div>
       </Flex>
       <Footer />
     </motion.div>

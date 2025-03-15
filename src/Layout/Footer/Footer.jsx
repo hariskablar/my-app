@@ -28,7 +28,14 @@ function Footer() {
       >
         Pokreni igru
       </div>
-      <div className={classes.orangeBtn}>Cjenovnik usluga</div>
+      <div
+        className={classes.orangeBtn}
+        onClick={() => {
+          navigate('/cjenovnici-usluga');
+        }}
+      >
+        Cjenovnik usluga
+      </div>
       <div className={classes.orangeBtn}>Cjenovnik uređaja</div>
     </footer>
   );

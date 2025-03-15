@@ -1,0 +1,20 @@
+.izvodi-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-width: 1340px;
+  width: 1340px;
+}
+.cards-title {
+  width: 1340px;
+}
+.cards-title p {
+  font-size: 35px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0 0 30px;
+}
