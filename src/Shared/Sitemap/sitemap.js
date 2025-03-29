@@ -15,7 +15,9 @@ const Zabava = lazy(() => import('../../Views/Zabava/Zabava'));
 const CjenovniciUsluga = lazy(() =>
   import('../../Views/CjenovniciUsluga/CjenovniciUsluga')
 );
-
+const CjenovnikView = lazy(() =>
+  import('../../Views/CjenovniciUsluga/CjenovnikView')
+);
 export const sitemap = [
   { component: <App />, path: '/' },
   { component: <MobilniTelefoni />, path: '/mobilni-telefoni' },
@@ -27,4 +29,5 @@ export const sitemap = [
   { component: <Esim />, path: '/esim' },
   { component: <Zabava />, path: '/zabava' },
   { component: <CjenovniciUsluga />, path: '/cjenovnici-usluga' },
+  { component: <CjenovnikView />, path: '/cjenovnik-usluge' },
 ];

@@ -1,0 +1,53 @@
+.table-container {
+  width: auto;
+  height: 75vh;
+  max-height: 75vh;
+  overflow-y: auto;
+  margin: 0 100px;
+  padding: 50px 0;
+}
+table {
+  background: white;
+}
+tr {
+  display: flex;
+}
+td {
+  border: 1px solid lightgrey;
+  padding: 10px;
+  width: 100%;
+}
+td:first-child {
+  flex: 1 0 50%;
+}
+td:not(:first-child) {
+  text-align: center;
+}
+.title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 800;
+}
+.cjenovnik-type {
+  font-size: 40px;
+  text-align: center;
+  color: #fe8300;
+  font-weight: 800;
+}
+.valid-date {
+  text-align: center;
+  font-weight: 800;
+  color: black;
+  font-size: 25px;
+}
+.description td {
+  font-weight: 400;
+  color: black;
+  text-align: center;
+  padding: 20px 20%;
+}
+.bht-bg {
+  color: white;
+  background-color: #fe8300;
+  font-weight: 500;
+}

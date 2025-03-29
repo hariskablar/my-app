@@ -1,15 +1,31 @@
 import classes from './ListItem.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useDigitalDisplay } from '../../Shared/AppContext';
 
 function ListItem({ cardData, cardType }) {
   const { title, subtitle, image, image2, path } = cardData;
   const navigate = useNavigate();
+  const {
+    setSelectedCjenovnik,
+    cjenovnikUredjajaMojaTV,
+    cjenovnikUredjajaExtra,
+  } = useDigitalDisplay();
+
+  const handleClick = () => {
+    let selectedCjenovnik;
+    if (title.toLowerCase().includes('extra'))
+      selectedCjenovnik = cjenovnikUredjajaExtra;
+    if (title.toLowerCase().includes('moja'))
+      selectedCjenovnik = cjenovnikUredjajaMojaTV;
+    setSelectedCjenovnik(selectedCjenovnik);
+    navigate(`${path}`);
+  };
 
   return (
     <div
       className={`${classes[`${cardType}-card-wrapper`]}`}
       onClick={() => {
-        navigate(`${path}`);
+        handleClick();
       }}
     >
       <div className={classes['image-container']}>

@@ -10,32 +10,32 @@ function CjenovniciUsluga() {
     {
       title: 'ultra mobilne usluge',
       image: '/prepaid-logo.svg',
-      path: '/ultra-izvod',
+      path: '/cjenovnik-usluge',
     },
     {
       title: 'extra mobilne usluge',
       image: '/postpaid-logo.svg',
-      path: '/extra-izvod',
+      path: '/cjenovnik-usluge',
     },
     {
       title: 'kombinovane mobilne usluge',
       image: '/kombinovani-logo.svg',
-      path: '/kombinovani-izvod',
+      path: '/cjenovnik-usluge',
     },
     {
       title: 'moja tv usluga',
       image: '/mojatv-logo.svg',
-      path: '/moja-tv-izvod',
+      path: '/cjenovnik-usluge',
     },
     {
       title: 'usluge pristupa internetu',
       image: '/internet-logo.svg',
-      path: '/internet-izvod',
+      path: '/cjenovnik-usluge',
     },
     {
       title: 'fiksne usluge',
       image: '/fiksna-logo.svg',
-      path: '/fiksna-izvod',
+      path: '/cjenovnik-usluge',
     },
   ];
   const dokupiKartice = dokupiData.map((card) => (

@@ -7,6 +7,45 @@ export const DigitalDisplayProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [akcije, setAkcije] = useState([]);
   const [dokupi, setDokupi] = useState([]);
+  const [cjenovnikUredjajaMojaTV, setCjenovnikUredjajaMojaTV] = useState([]);
+  const [cjenovnikUredjajaExtra, setCjenovnikUredjajaExtra] = useState([]);
+  const [selectedCjenovnik, setSelectedCjenovnik] = useState([]);
+
+  const fetchMojaTvCjenovnikUsluga = async () => {
+    const sheetId = '1xYiZB_95fmNbnFdU-HcPm8rp3BZKYq7t7e7ihF13NY0';
+    const sheetName = 'MojaTV cjenovnik';
+
+    try {
+      const response = await googleSheetClient.get(
+        `/${sheetId}/values/${sheetName}`
+      );
+      const formattedCjenovnik = response.data.values.map((row) => {
+        return row.filter((cell) => {
+          return cell !== '';
+        });
+      });
+      setCjenovnikUredjajaMojaTV(formattedCjenovnik);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const fetchExtraCjenovnikUsluga = async () => {
+    const sheetId = '1xYiZB_95fmNbnFdU-HcPm8rp3BZKYq7t7e7ihF13NY0';
+    const sheetName = 'Extra mobilne usluge cjenovnik';
+    try {
+      const response = await googleSheetClient.get(
+        `/${sheetId}/values/${sheetName}`
+      );
+      const formattedCjenovnik = response.data.values.map((row) => {
+        return row.filter((cell) => {
+          return cell !== '';
+        });
+      });
+      setCjenovnikUredjajaExtra(formattedCjenovnik);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const fetchUredaji = async () => {
     const sheetId = '1xYiZB_95fmNbnFdU-HcPm8rp3BZKYq7t7e7ihF13NY0';
@@ -77,11 +116,22 @@ export const DigitalDisplayProvider = ({ children }) => {
     fetchUredaji();
     fetchAkcije();
     fetchDokupi();
+    fetchMojaTvCjenovnikUsluga();
+    fetchExtraCjenovnikUsluga();
   }, []);
 
   return (
     <digitalDisplayContext.Provider
-      value={{ data, akcije, dokupi, googleSheetClient }}
+      value={{
+        data,
+        akcije,
+        dokupi,
+        cjenovnikUredjajaMojaTV,
+        cjenovnikUredjajaExtra,
+        selectedCjenovnik,
+        setSelectedCjenovnik,
+        googleSheetClient,
+      }}
     >
       {children}
     </digitalDisplayContext.Provider>
