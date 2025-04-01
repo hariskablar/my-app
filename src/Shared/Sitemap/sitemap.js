@@ -13,10 +13,13 @@ const KombinovaniDokupi = lazy(() =>
 const Esim = lazy(() => import('../../Views/Esim/Esim'));
 const Zabava = lazy(() => import('../../Views/Zabava/Zabava'));
 const CjenovniciUsluga = lazy(() =>
-  import('../../Views/CjenovniciUsluga/CjenovniciUsluga')
+  import('../../Views/Cjenovnici/CjenovniciUsluga')
 );
 const CjenovnikView = lazy(() =>
-  import('../../Views/CjenovniciUsluga/CjenovnikView')
+  import('../../Views/Cjenovnici/CjenovnikView')
+);
+const CjenovniciUredjaja = lazy(() =>
+  import('../../Views/Cjenovnici/CjenovniciUredjaja')
 );
 export const sitemap = [
   { component: <App />, path: '/' },
@@ -30,4 +33,5 @@ export const sitemap = [
   { component: <Zabava />, path: '/zabava' },
   { component: <CjenovniciUsluga />, path: '/cjenovnici-usluga' },
   { component: <CjenovnikView />, path: '/cjenovnik-usluge' },
+  { component: <CjenovniciUredjaja />, path: '/cjenovnici-uredjaja' },
 ];

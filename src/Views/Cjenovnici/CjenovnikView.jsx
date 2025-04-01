@@ -2,12 +2,18 @@ import classes from './CjenovnikView.module.css';
 import { useDigitalDisplay } from '../../Shared/AppContext';
 import Header from './../../Layout/Header/Header';
 import Footer from '../../Layout/Footer/Footer';
+import { motion } from 'framer-motion';
 
 function CjenovnikView() {
   const { selectedCjenovnik } = useDigitalDisplay();
   console.log(selectedCjenovnik);
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <Header />
       <div className={classes['table-container']}>
         <table>
@@ -43,7 +49,7 @@ function CjenovnikView() {
         </table>
       </div>
       <Footer />
-    </>
+    </motion.div>
   );
 }
 

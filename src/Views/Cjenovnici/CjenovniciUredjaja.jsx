@@ -5,40 +5,60 @@ import ListItem from '../../Components/ListItem/ListItem';
 import classes from './CjenovniciUsluga.module.css';
 import { Flex } from '@mantine/core';
 
-function CjenovniciUsluga() {
-  const dokupiData = [
+function CjenovniciUredjaja() {
+  const cjenovniciUredjaja = [
     {
-      title: 'ultra mobilne usluge',
+      title: 'Moja TV paket',
       image: '/prepaid-logo.svg',
-      path: '/cjenovnik-usluge',
+      path: '/cjenovnik-uredjaja',
     },
     {
-      title: 'extra mobilne usluge',
+      title: 'Moja TV GO paket',
       image: '/postpaid-logo.svg',
-      path: '/cjenovnik-usluge',
+      path: '/cjenovnik-uredjaja',
     },
     {
-      title: 'kombinovane mobilne usluge',
+      title: 'Govorna BH Line paketi',
       image: '/kombinovani-logo.svg',
-      path: '/cjenovnik-usluge',
+      path: '/cjenovnik-uredjaja',
     },
     {
-      title: 'moja tv usluga',
+      title: 'Govorna BH Mobile paketi',
       image: '/mojatv-logo.svg',
-      path: '/cjenovnik-usluge',
+      path: '/cjenovnik-uredjaja',
     },
     {
-      title: 'usluge pristupa internetu',
+      title: 'Assistant paketi',
       image: '/internet-logo.svg',
-      path: '/cjenovnik-usluge',
+      path: '/cjenovnik-uredjaja',
     },
     {
-      title: 'fiksne usluge',
+      title: 'Teen paketi',
       image: '/fiksna-logo.svg',
-      path: '/cjenovnik-usluge',
+      path: '/cjenovnik-uredjaja',
+    },
+    {
+      title: 'Student paketi',
+      image: '/fiksna-logo.svg',
+      path: '/cjenovnik-uredjaja',
+    },
+    {
+      title: 'Internet paketi putem fiksne mreže',
+      image: '/fiksna-logo.svg',
+      path: '/cjenovnik-uredjaja',
+    },
+    {
+      title: 'NET GO',
+      image: '/fiksna-logo.svg',
+      path: '/cjenovnik-uredjaja',
+    },
+    {
+      title: 'NET TO GO',
+      image: '/fiksna-logo.svg',
+      path: '/cjenovnik-uredjaja',
     },
   ];
-  const dokupiKartice = dokupiData.map((card) => (
+  const cjenovniciKartice = cjenovniciUredjaja.map((card) => (
     <ListItem key={card.title} cardData={card} cardType='izvodi' />
   ));
   return (
@@ -59,13 +79,13 @@ function CjenovniciUsluga() {
         m='auto'
       >
         <Flex className={classes['cards-title']}>
-          <p>Cjenovnici usluga</p>
+          <p>Cjenovnici uređaja</p>
         </Flex>
-        <Flex className={classes['izvodi-grid']}>{dokupiKartice}</Flex>
+        <Flex className={classes['izvodi-grid']}>{cjenovniciKartice}</Flex>
       </Flex>
       <Footer />
     </motion.div>
   );
 }
 
-export default CjenovniciUsluga;
+export default CjenovniciUredjaja;

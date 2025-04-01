@@ -36,7 +36,14 @@ function Footer() {
       >
         Cjenovnik usluga
       </div>
-      <div className={classes.orangeBtn}>Cjenovnik uređaja</div>
+      <div
+        className={classes.orangeBtn}
+        onClick={() => {
+          navigate('/cjenovnici-uredjaja');
+        }}
+      >
+        Cjenovnik uređaja
+      </div>
     </footer>
   );
 }
